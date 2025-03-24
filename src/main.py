@@ -29,7 +29,7 @@ def get_web3_client(network: Network):
 def main():
     web3 = get_web3_client(Network.OPTIMISM)
     factory_address = CONTRACT_ADDRESSES[Contract.UniswapV3Factory][Network.OPTIMISM]
-    pool_factory = UniswapV3Factory(web3, factory_address)
+    pool_factory = UniswapV3Factory(Network.OPTIMISM, web3, factory_address)
 
     liquidity_pool = pool_factory.get_liquidity_pool(
         CONTRACT_ADDRESSES[Token.WETH][Network.OPTIMISM],
@@ -37,7 +37,7 @@ def main():
         UniswapFee.FEE_3000
     )
 
-    print(liquidity_pool)
+    print(liquidity_pool.address)
 
 
 if __name__ == "__main__":
