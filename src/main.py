@@ -37,7 +37,8 @@ def main():
         UniswapFee.FEE_3000
     )
 
-    print(liquidity_pool.address)
+    print(f"Liquidity: {liquidity_pool.get_pool_liquidity()}")
+    print(f"Pool Price: {liquidity_pool.get_price_pair()}")
 
 
 if __name__ == "__main__":
