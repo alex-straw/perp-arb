@@ -1,12 +1,14 @@
-from src.enums.contract import Contract
-from src.enums.network import Network
-from src.enums.token import Token
+from src.enums.enum_definitions import Network, Token, Contract
 
 
 ZERO_ADDRESS = "0x0000000000000000000000000000000000000000"
 
+ERC20_DECIMALS = {
+    Token.WETH: 18,
+    Token.USDC: 6
+}
 
-CONTRACT_ADDRESSES = {
+ERC20_CONTRACT_ADDRESSES = {
     Token.WETH: {
         Network.SEPOLIA: "0x7b79995e5f793A07Bc00c21412e50Ecae098E7f9",
         Network.ETHEREUM: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
@@ -18,7 +20,10 @@ CONTRACT_ADDRESSES = {
         Network.ETHEREUM: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
         Network.ARBITRUM: "0xFF970A61A04b1cA14834A43f5de4533eBDDB5CC8",
         Network.OPTIMISM: "0x7F5c764cBc14f9669B88837ca1490cCa17c31607"
-    },
+    }
+}
+
+CONTRACT_ADDRESSES = {
     Contract.UniswapV3Factory: {
         Network.SEPOLIA: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
         Network.ETHEREUM: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
