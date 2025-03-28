@@ -5,6 +5,8 @@ class Contract(Enum):
     UniswapV3Factory = "UniswapV3Factory"
     UniswapV3SwapRouter = "UniswapV3SwapRouter"
     UniswapV3Pool = "UniswapV3Pool"
+    WETH = "WETH"
+    USDC = "USDC"
 
 
 class Network(Enum):
@@ -12,11 +14,6 @@ class Network(Enum):
     ARBITRUM = "arbitrum"
     OPTIMISM = "optimism"
     ETHEREUM = "ethereum"
-
-
-class Token(Enum):
-    WETH = "WETH"
-    USDC = "USDC"
 
 
 class UniswapFee(Enum):

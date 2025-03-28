@@ -1,8 +1,8 @@
 import os
 from web3 import Web3
 from src.strategies.spot.UniswapV3Factory import UniswapV3Factory
-from src.enums.enum_definitions import Network, Token, Contract, UniswapFee
-from src.config.addresses import CONTRACT_ADDRESSES, INFURA_NETWORKS, ERC20_CONTRACT_ADDRESSES, ERC20_DECIMALS
+from src.enums.enum_definitions import Network, Contract, UniswapFee
+from src.config.addresses import CONTRACT_ADDRESSES, INFURA_NETWORKS, CONTRACT_ADDRESSES, ERC20_DECIMALS
 from src.models.data_models import ContractDTO, ERC20DTO
 
 def get_infura_project_id() -> str:
@@ -24,9 +24,9 @@ def get_web3_client(network: Network):
 
 
 def main():
-    wethDTO = ERC20DTO(Token.WETH, Network.OPTIMISM, ERC20_CONTRACT_ADDRESSES[Token.WETH][Network.OPTIMISM], ERC20_DECIMALS[Token.WETH])
-    usdcDTO = ERC20DTO(Token.USDC, Network.OPTIMISM, ERC20_CONTRACT_ADDRESSES[Token.USDC][Network.OPTIMISM], ERC20_DECIMALS[Token.USDC])
-    factoryDTO = ContractDTO(Contract.UniswapV3Factory, Network.OPTIMISM, CONTRACT_ADDRESSES[Contract.UniswapV3Factory][Network.OPTIMISM])
+    wethDTO = ERC20DTO(Contract.WETH, Network.OPTIMISM)
+    usdcDTO = ERC20DTO(Contract.USDC, Network.OPTIMISM)
+    factoryDTO = ContractDTO(Contract.UniswapV3Factory, Network.OPTIMISM)
 
     web3 = get_web3_client(Network.OPTIMISM)
     pool_factory = UniswapV3Factory(web3, factoryDTO)

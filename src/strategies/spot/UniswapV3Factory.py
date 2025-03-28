@@ -4,6 +4,7 @@ from src.helpers.contract_helpers import get_uniswap_v3_factory_abi
 from src.strategies.spot.UniswapV3Pool import UniswapV3Pool
 from src.models.data_models import ContractDTO, ERC20DTO
 
+
 class UniswapV3Factory:
 
     def __init__(self, web3: Web3, contract_dto: ContractDTO):
