@@ -6,7 +6,6 @@ from src.models.data_models import ContractDTO, ERC20DTO
 
 
 class UniswapV3Factory:
-
     def __init__(self, web3: Web3, contract_dto: ContractDTO):
         self.web3 = web3
         self.contract_dto = contract_dto

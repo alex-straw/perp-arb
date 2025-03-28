@@ -24,16 +24,16 @@ def get_web3_client(network: Network):
 
 
 def main():
-    wethDTO = ERC20DTO(Contract.WETH, Network.OPTIMISM)
-    usdcDTO = ERC20DTO(Contract.USDC, Network.OPTIMISM)
-    factoryDTO = ContractDTO(Contract.UniswapV3Factory, Network.OPTIMISM)
+    weth_dto = ERC20DTO(Contract.WETH, Network.OPTIMISM)
+    usdc_dto = ERC20DTO(Contract.USDC, Network.OPTIMISM)
+    factory_dto = ContractDTO(Contract.UniswapV3Factory, Network.OPTIMISM)
 
     web3 = get_web3_client(Network.OPTIMISM)
-    pool_factory = UniswapV3Factory(web3, factoryDTO)
+    pool_factory = UniswapV3Factory(web3, factory_dto)
 
     liquidity_pool = pool_factory.get_liquidity_pool(
-        wethDTO,
-        usdcDTO,
+        weth_dto,
+        usdc_dto,
         UniswapFee.FEE_3000
     )
 
