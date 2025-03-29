@@ -2,11 +2,22 @@ from enum import Enum
 
 
 class Contract(Enum):
+    # Uniswap
     UniswapV3Factory = "UniswapV3Factory"
     UniswapV3SwapRouter = "UniswapV3SwapRouter"
     UniswapV3Pool = "UniswapV3Pool"
+
+    # SynFutures
+    SynFuturesGate = "SynFuturesGate"
+    SynFuturesConfig = "SynFuturesConfig"
+    SynFuturesGuardian = "SynFuturesGuardian"
+    SynFuturesObserver = "SynFuturesObserver"
+    SynFuturesInstrumentALBUSDC = "SynFuturesALBUSDC"
+
+    # ERC20
     WETH = "WETH"
     USDC = "USDC"
+    ALB = "ALB"
 
 
 class Network(Enum):
@@ -14,6 +25,8 @@ class Network(Enum):
     ARBITRUM = "arbitrum"
     OPTIMISM = "optimism"
     ETHEREUM = "ethereum"
+    BASE = "base"
+    BLAST = "blast"
 
 
 class UniswapFee(Enum):
