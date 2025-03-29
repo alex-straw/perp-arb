@@ -1,9 +1,10 @@
 import os
 from web3 import Web3
-from src.strategies.spot.UniswapV3Factory import UniswapV3Factory
+from src.strategies.UniswapV3Factory import UniswapV3Factory
 from src.enums.enum_definitions import Network, Contract, UniswapFee
-from src.config.addresses import CONTRACT_ADDRESSES, INFURA_NETWORKS, CONTRACT_ADDRESSES, ERC20_DECIMALS
+from src.config.addresses import INFURA_NETWORKS
 from src.models.data_models import ContractDTO, ERC20DTO
+
 
 def get_infura_project_id() -> str:
     return os.getenv("INFURA_API_PROJECT_ID")
