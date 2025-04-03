@@ -1,6 +1,7 @@
 from web3 import Web3
 from src.helpers.contract_helpers import get_uniswap_v3_pool_abi
 from src.models.data_models import ERC20DTO, ContractDTO
+from src.utils.math import sqrt_price_x96_to_price
 
 
 class UniswapV3Pool:
@@ -8,8 +9,13 @@ class UniswapV3Pool:
         self.web3 = web3
         self.contract_dto = pool_contract_dto
         self.contract = web3.eth.contract(address=self.contract_dto.address, abi=get_uniswap_v3_pool_abi())
-        self.token_a_dto = token_a_dto
-        self.token_b_dto = token_b_dto
+
+        if token_a_dto.address < token_b_dto.address:
+            self.token0 = token_a_dto
+            self.token1 = token_b_dto
+        else:
+            self.token0 = token_b_dto
+            self.token1 = token_a_dto
 
     def get_pool_liquidity(self):
         return self.contract.functions.liquidity().call()
@@ -22,6 +28,6 @@ class UniswapV3Pool:
         """
         slot0 = self.contract.functions.slot0().call()
         sqrt_price_x96 = slot0[0]
-        price = ((sqrt_price_x96 ** 2) / (2 ** 192)) * (10 ** (self.token_a_dto.decimals - self.token_b_dto.decimals))
+        price = sqrt_price_x96_to_price(sqrt_price_x96, self.token0, self.token1)
         return price
 

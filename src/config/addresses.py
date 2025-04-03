@@ -5,7 +5,8 @@ ZERO_ADDRESS = "0x0000000000000000000000000000000000000000"
 
 ERC20_DECIMALS = {
     Contract.WETH: 18,
-    Contract.USDC: 6
+    Contract.USDC: 6,
+    Contract.ALB: 18
 }
 
 

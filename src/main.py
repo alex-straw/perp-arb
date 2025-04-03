@@ -18,8 +18,7 @@ def main():
         UniswapFee.FEE_3000
     )
 
-    print(f"Liquidity: {liquidity_pool.get_pool_liquidity()}")
-    print(f"Pool Price {liquidity_pool.token_a_dto.name}/{liquidity_pool.token_b_dto.name}: {liquidity_pool.get_price()}")
+    price = liquidity_pool.get_price()
 
 
 if __name__ == "__main__":
