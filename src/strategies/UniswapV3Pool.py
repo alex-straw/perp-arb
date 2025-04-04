@@ -18,7 +18,9 @@ class UniswapV3Pool:
             self.token1 = token_a_dto
 
     def get_pool_liquidity(self):
-        return self.contract.functions.liquidity().call()
+        liquidity = self.contract.functions.liquidity().call()
+        print(f"Liquidity: ({self.token0.name.value}/{self.token1.name.value}) {liquidity}")
+        return liquidity
 
     def get_price(self):
         """

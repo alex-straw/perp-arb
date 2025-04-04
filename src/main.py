@@ -5,20 +5,21 @@ from src.models.data_models import ContractDTO, ERC20DTO
 
 
 def main():
-    weth_dto = ERC20DTO(Contract.WETH, Network.OPTIMISM)
-    usdc_dto = ERC20DTO(Contract.USDC, Network.OPTIMISM)
-    factory_dto = ContractDTO(Contract.UniswapV3Factory, Network.OPTIMISM)
+    alb_dto = ERC20DTO(Contract.ALB, Network.BASE)
+    usdc_dto = ERC20DTO(Contract.USDC, Network.BASE)
+    factory_dto = ContractDTO(Contract.AlienBaseUniswapV3Factory, Network.BASE)
 
-    web3 = get_web3_client(Network.OPTIMISM)
+    web3 = get_web3_client(Network.BASE)
     pool_factory = UniswapV3Factory(web3, factory_dto)
 
     liquidity_pool = pool_factory.get_liquidity_pool(
-        weth_dto,
+        alb_dto,
         usdc_dto,
-        UniswapFee.FEE_3000
+        UniswapFee.FEE_10000
     )
 
     price = liquidity_pool.get_price()
+    liquidity = liquidity_pool.get_pool_liquidity()
 
 
 if __name__ == "__main__":
