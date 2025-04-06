@@ -1,7 +1,7 @@
 from web3 import Web3
 from src.enums.enum_definitions import Contract, UniswapFee
 from src.helpers.contract_helpers import get_uniswap_v3_factory_abi
-from src.strategies.UniswapV3Pool import UniswapV3Pool
+from src.strategies.contracts.UniswapV3Pool import UniswapV3Pool
 from src.models.data_models import ContractDTO, ERC20DTO
 
 

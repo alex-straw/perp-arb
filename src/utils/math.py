@@ -1,7 +1,7 @@
 from src.models.data_models import ERC20DTO
 
 
-def sqrt_price_x96_to_price_syn_futures(sqrt_price_x96: int, token0: ERC20DTO, token1: ERC20DTO, is_inverse=False) -> float:
+def sqrt_price_x96_to_price_syn_futures(sqrt_price_x96: int, token0: ERC20DTO, token1: ERC20DTO, is_inverse=False, verbose=False) -> float:
     """
     Converts sqrtPriceX96 (sqrtPriceX96 = sqrt(token1/token0) * 2**96) to the actual price of token0 per token1.
 
@@ -19,12 +19,13 @@ def sqrt_price_x96_to_price_syn_futures(sqrt_price_x96: int, token0: ERC20DTO, t
     if is_inverse:
         price = 1/price
 
-    print(f"{token0.name.value}/{token1.name.value} = {price:.8f}")
+    if verbose:
+        print(f"{token0.name.value}/{token1.name.value} = {price:.8f}")
 
     return price
 
 
-def sqrt_price_x96_to_price(sqrt_price_x96: int, token0: ERC20DTO, token1: ERC20DTO) -> float:
+def sqrt_price_x96_to_price(sqrt_price_x96: int, token0: ERC20DTO, token1: ERC20DTO, verbose=False) -> float:
     """
     Converts sqrtPriceX96 (sqrtPriceX96 = sqrt(token1/token0) * 2**96) to the actual price of token1 per token0.
     Assumes token0.address < token1.address.
@@ -39,7 +40,8 @@ def sqrt_price_x96_to_price(sqrt_price_x96: int, token0: ERC20DTO, token1: ERC20
 
     price = _sqrt_price_x96_to_raw_price(sqrt_price_x96) * (10 ** (token0.decimals - token1.decimals))
 
-    print(f"{token0.name.value}/{token1.name.value} = {price:.8f}")
+    if verbose:
+        print(f"{token0.name.value}/{token1.name.value} = {price:.8f}")
 
     return price
 
