@@ -27,3 +27,7 @@ Having a highly volatile asset as margin is less than ideal because any price in
 cancelled out by the short position. Ideally the margin would be relatively stable. This means there is capital gains risk,
 in addition to the tax which would be paid on funding rate earnings (classified as income tax).
 
+## Tests
+To run tests you must have `pytest` installed.
+
+Run `pytest` from the project root.
