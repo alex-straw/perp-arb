@@ -12,13 +12,13 @@ This leads to an intentional funding rate arbitrage opportunity.
 
 ## Strategy
 
-1. Identify the SynFutures perpetual future price `F_p`
-2. Identify the oracle price of the pair (initially using a liquid DEX price as a proxy for this) `O_p`
-3. Obtain the signal strength `F_p / O_p` (which must be greater than some value to justify arbitrage)
-4. Purchase the asset, and add it to the perpetual futures platform so that it can be used for trading.
-5. Go short on the perptual future with 1x leverage so that the trade is delta neutral. The margin used will be the same as the short size.
-6. Exit when `F_p <= O_p`.
-7. Remove the margin (and potential profit) from the perpetual futures platform and swap this back to some low risk asset e.g., USDC.
+1. Identify the SynFutures perpetual future price `F_p` :white_check_mark:
+2. Identify the oracle price of the pair (initially using a liquid DEX price as a proxy for this) `O_p` :white_check_mark:
+3. Obtain the signal strength `F_p / O_p` (which must be greater than some value to justify arbitrage) :white_check_mark:
+4. Purchase the asset, and add it to the perpetual futures platform so that it can be used for trading. :x:
+5. Go short on the perptual future with 1x leverage so that the trade is delta neutral. The margin used will be the same as the short size. :x:
+6. Exit when `F_p <= O_p`. :x:
+7. Remove the margin (and potential profit) from the perpetual futures platform and swap this back to some low risk asset e.g., USDC. :x:
 
 Initially this will only consider going short on the perpetual future for the ease of keeping the trade delta neutral (with spot margin acting as a hedge)
 
