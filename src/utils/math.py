@@ -1,4 +1,5 @@
 from src.models.data_models import ERC20DTO
+from decimal import Decimal
 
 
 def sqrt_price_x96_to_price_syn_futures(sqrt_price_x96: int, token0: ERC20DTO, token1: ERC20DTO, is_inverse=False, verbose=False) -> float:
@@ -48,3 +49,8 @@ def sqrt_price_x96_to_price(sqrt_price_x96: int, token0: ERC20DTO, token1: ERC20
 
 def _sqrt_price_x96_to_raw_price(sqrt_price_x96: int):
     return (sqrt_price_x96 ** 2) / (2 ** 192)
+
+
+def spot_int_to_float(spot_int: int, invert=True) -> float:
+    price = Decimal(spot_int) / Decimal(10**18)
+    return float(1 / price if invert else price)

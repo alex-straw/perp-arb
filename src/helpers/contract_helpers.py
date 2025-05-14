@@ -8,8 +8,10 @@ ABIS_DIR = get_project_root() / "src" / "abis"
 UNISWAP_V3_FACTORY_PATH = Path(ABIS_DIR) / "uniswap" / "UniswapV3Factory.json"
 UNISWAP_V3_POOL_PATH = Path(ABIS_DIR) / "uniswap" / "UniswapV3Pool.json"
 SYNFUTURES_OBSERVER_PATH = Path(ABIS_DIR) / "syn_futures" / "Observer.json"
+SYNFUTURES_CONFIG_PATH = Path(ABIS_DIR) / "syn_futures" / "Config.json"
 SYNFUTURES_GATE_PATH = Path(ABIS_DIR) / "syn_futures" / "Gate.json"
 SYNFUTURES_INSTRUMENT_PATH = Path(ABIS_DIR) / "syn_futures" / "Instrument.json"
+SYNFUTURES_DEX_V2_MARKET_PATH = Path(ABIS_DIR) / "syn_futures" / "DexV2Market.json"
 
 
 def get_uniswap_v3_factory_abi():
@@ -24,12 +26,20 @@ def get_syn_futures_observer_abi():
     return _get_abi(SYNFUTURES_OBSERVER_PATH)
 
 
+def get_syn_futures_config_abi():
+    return _get_abi(SYNFUTURES_CONFIG_PATH)
+
+
 def get_syn_futures_gate_abi():
     return _get_abi(SYNFUTURES_GATE_PATH)
 
 
 def get_syn_futures_instrument_abi():
     return _get_abi(SYNFUTURES_INSTRUMENT_PATH)
+
+
+def get_syn_futures_dex_v2_market_abi():
+    return _get_abi(SYNFUTURES_DEX_V2_MARKET_PATH)
 
 
 def _get_abi(path: Path):

@@ -12,6 +12,10 @@ def get_infura_api_key_secret() -> str:
     return os.getenv("INFURA_API_KEY_SECRET")
 
 
+def get_block_time(web3: Web3) -> int:
+    return web3.eth.get_block("latest")["timestamp"]
+
+
 def get_web3_client(network: Network):
     infura_url = f"{INFURA_NETWORKS[network]}{get_infura_project_id()}"
     w3 = Web3(Web3.HTTPProvider(infura_url))

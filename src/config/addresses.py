@@ -1,4 +1,4 @@
-from src.enums.enum_definitions import Network, Contract
+from src.enums.enum_definitions import Network, Contract, UniswapFee
 
 
 ZERO_ADDRESS = "0x0000000000000000000000000000000000000000"
@@ -58,6 +58,28 @@ CONTRACT_ADDRESSES = {
     },
     Contract.ALB: {
         Network.BASE: "0x1dd2d631c92b1aCdFCDd51A0F7145A50130050C4"
+    },
+    Contract.UniswapV3Pool: {
+        Network.BASE: {
+            (Contract.ALB, Contract.USDC): {
+                UniswapFee.FEE_100: "0x0000000000000000000000000000000000000000",
+                UniswapFee.FEE_500: "0x0000000000000000000000000000000000000000",
+                UniswapFee.FEE_1000: "0x0000000000000000000000000000000000000000",
+                UniswapFee.FEE_3000: "0x36a72fd9E7F71ED407e044B245c63F062d51ae8D",
+                UniswapFee.FEE_10000: "0xBDEadFF7Bd283E7A0bf656260F9d9AcfDA0a1029",
+            }
+        }
+    },
+    Contract.AlienBaseUniswapV3Pool: {
+        Network.BASE: {
+            (Contract.ALB, Contract.USDC): {
+                UniswapFee.FEE_100:   "0x0000000000000000000000000000000000000000",
+                UniswapFee.FEE_500:   "0x0000000000000000000000000000000000000000",
+                UniswapFee.FEE_1000:  "0x0000000000000000000000000000000000000000",
+                UniswapFee.FEE_3000:  "0x863b5310C781A9Be56c5a22c388540ff42A1a81a",
+                UniswapFee.FEE_10000: "0x1FF5e9947F7005302e844a6c0099349674b59576",
+            }
+        }
     }
 }
 

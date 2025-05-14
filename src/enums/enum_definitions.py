@@ -9,6 +9,7 @@ class Contract(Enum):
 
     # Uniswap Forks
     AlienBaseUniswapV3Factory = "AlienBaseUniswapV3Factory"
+    AlienBaseUniswapV3Pool = "AlienBaseUniswapV3Pool"
 
     # SynFutures
     SynFuturesGate = "SynFuturesGate"
